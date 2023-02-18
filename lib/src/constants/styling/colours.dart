@@ -14,5 +14,6 @@ final feintWhite = Colors.white.withOpacity(0.6);
 final feintWhiteUnderline = Colors.white.withOpacity(0.2);
 
 //used for the blurs
+final socialIconsBlur = const Color(0XFF292828).withOpacity(0.4);
 final blurOverlayColor = primaryColor.withOpacity(0.5);
 final titleBlurOverlayColor = const Color(0XFF292828).withOpacity(0.4);

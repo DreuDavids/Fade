@@ -9,14 +9,12 @@ class TextFormFieldTheme {
   static InputDecorationTheme darkInputDecorationTheme = InputDecorationTheme(
     filled: true,
     fillColor: primaryColor,
+    contentPadding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 15.w),
     labelStyle: inputFont.apply(color: Colors.white),
+    floatingLabelBehavior: FloatingLabelBehavior.never,
     floatingLabelStyle: inputFont.apply(color: Colors.white),
     hintStyle: inputFont.apply(color: Colors.white),
     counterStyle: inputFont.apply(color: Colors.white),
-    focusedBorder: OutlineInputBorder(
-      borderSide: BorderSide(
-        width: 0.w,
-      ),
-    ),
+    border: InputBorder.none,
   );
 }
