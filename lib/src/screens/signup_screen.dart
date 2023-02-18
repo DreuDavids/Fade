@@ -1,24 +1,24 @@
 import 'dart:ui';
-import 'package:fade/src/screens/screens.dart';
+import 'package:fade/src/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants/constants.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class SignupScreen extends StatelessWidget {
+  const SignupScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Stack(
-        alignment: Alignment.center,
+        alignment: Alignment.topCenter,
         children: [
           Image.asset(
             loginBackgroundImage,
-            alignment: Alignment.centerRight,
             fit: BoxFit.fitHeight,
             height: double.infinity,
+            alignment: Alignment.centerRight,
           ),
           Container(
             height: double.infinity,
@@ -32,77 +32,76 @@ class LoginScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
-                      'LOGIN',
+                      'REGISTER',
                       style: titleFont,
                     ),
                     SizedBox(
                       height: 5.h,
                     ),
                     Text(
-                      'Welcome Back To Urban Cuts',
+                      'Welcome To Urban Cuts',
                       style: subtitleFont,
                     ),
                     SizedBox(
                       height: 40.h,
                     ),
+
+                    ///Form
                     Form(
                       child: Column(
                         children: [
                           TextFormField(
-                            decoration: const InputDecoration(
-                              hintText: 'Email',
-                            ),
+                            decoration:
+                                const InputDecoration(hintText: 'Email'),
                           ),
                           SizedBox(
                             height: 5.h,
                           ),
                           TextFormField(
+                            decoration:
+                                const InputDecoration(hintText: 'Password'),
                             obscureText: true,
+                          ),
+                          SizedBox(
+                            height: 5.h,
+                          ),
+                          TextFormField(
                             decoration: const InputDecoration(
-                              hintText: 'Password',
-                            ),
+                                hintText: 'Confirm Password'),
+                            obscureText: true,
                           ),
                         ],
                       ),
                     ),
                     SizedBox(
-                      height: 10.h,
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        //navigate to the forgot password page
-                      },
-                      child: const Text('Forgot Password?'),
-                    ),
-                    SizedBox(
                       height: 40.h,
                     ),
 
-                    ///Login with social media
+                    ///Signup With
                     Row(
                       children: [
                         const Expanded(
                           child: Divider(
-                            color: dividerColour,
                             thickness: 1,
+                            color: dividerColour,
                             endIndent: 10,
                           ),
                         ),
                         Text(
-                          'Login with',
+                          'Signup with',
                           style: inputFont,
                         ),
                         const Expanded(
                           child: Divider(
-                            color: dividerColour,
                             thickness: 1,
+                            color: dividerColour,
                             indent: 10,
                           ),
                         ),
                       ],
                     ),
                     SizedBox(
-                      height: 40.h,
+                      height: 20.h,
                     ),
                     Center(
                       child: Container(
@@ -117,14 +116,14 @@ class LoginScreen extends StatelessWidget {
                           child: BackdropFilter(
                             filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
 
-                            ///Social login icons
+                            ///Social Signup icons
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                ///Google login
+                                ///Google Signup
                                 IconButton(
                                   onPressed: () {
-                                    //Implement Google login here
+                                    //Implement Google Signup here
                                   },
                                   icon: const Icon(Icons.g_mobiledata_rounded,
                                       color: darkBlue),
@@ -134,7 +133,7 @@ class LoginScreen extends StatelessWidget {
                                 ///Facebook login
                                 IconButton(
                                   onPressed: () {
-                                    //Implement Facebook login here
+                                    //Implement Facebook Signup here
                                   },
                                   icon: const Icon(Icons.facebook,
                                       color: darkBlue),
@@ -144,7 +143,7 @@ class LoginScreen extends StatelessWidget {
                                 ///Apple login
                                 IconButton(
                                   onPressed: () {
-                                    //Implement Apple login here
+                                    //Implement Apple Signup here
                                   },
                                   icon: const Icon(Icons.apple_rounded,
                                       color: darkBlue),
@@ -160,15 +159,15 @@ class LoginScreen extends StatelessWidget {
                       height: 40.h,
                     ),
                     MaterialButton(
-                      onPressed: () {
-                        //Login logic here
-                        ///TODO navigate to the home page here
-                      },
-                      minWidth: double.infinity,
-                      height: 50.h,
                       color: darkBlue,
+                      height: 50.h,
+                      minWidth: double.infinity,
+                      onPressed: () {
+                        //Implement Register Here
+                        //TODO navigate to the home page
+                      },
                       child: Text(
-                        'LOGIN',
+                        'REGISTER',
                         style: inputFont,
                       ),
                     ),
@@ -178,23 +177,23 @@ class LoginScreen extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          'Don\'t have an account?',
+                          'Already have an account?',
                           style: inputFont,
                         ),
                         TextButton(
                           onPressed: () {
-                            //Navigate to the Register page
+                            //TODO navigate to the login page
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const SignupScreen(),
+                                builder: (context) => const LoginScreen(),
                               ),
                             );
                           },
                           child: Text(
-                            'Register Now',
+                            'Login',
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ],
