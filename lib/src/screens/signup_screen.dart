@@ -160,7 +160,7 @@ class SignupScreen extends StatelessWidget {
                     ),
                     MaterialButton(
                       color: darkBlue,
-                      height: 50.h,
+                      height: 40.h,
                       minWidth: double.infinity,
                       onPressed: () {
                         //Implement Register Here
@@ -190,7 +190,7 @@ class SignupScreen extends StatelessWidget {
                               ),
                             );
                           },
-                          child: Text(
+                          child: const Text(
                             'Login',
                           ),
                         ),

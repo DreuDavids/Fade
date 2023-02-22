@@ -165,7 +165,7 @@ class LoginScreen extends StatelessWidget {
                         ///TODO navigate to the home page here
                       },
                       minWidth: double.infinity,
-                      height: 50.h,
+                      height: 40.h,
                       color: darkBlue,
                       child: Text(
                         'LOGIN',
@@ -191,10 +191,10 @@ class LoginScreen extends StatelessWidget {
                               ),
                             );
                           },
-                          child: Text(
+                          child: const Text(
                             'Register Now',
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ],
