@@ -13,6 +13,7 @@ class HomeScreen extends StatelessWidget {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
+        backgroundColor: darkBackground,
         body: Column(
           children: [
             Container(
@@ -142,20 +143,122 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: TabBarView(
-                children: [
-                  Placeholder(
-                    color: Colors.white,
-                  ),
-                  Placeholder(
-                    color: Colors.blue,
-                  ),
-                  Placeholder(
-                    color: Colors.red,
-                  ),
-                ],
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 30.h),
+                child: TabBarView(
+                  children: [
+                    ///Latest cuts section
+                    ListView.builder(
+                      padding: const EdgeInsets.all(0),
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: EdgeInsets.only(bottom: 40.h),
+                          child: const CutsCardWidget(),
+                        );
+                      },
+                    ),
+                    Placeholder(
+                      color: Colors.blue,
+                    ),
+                    Placeholder(
+                      color: Colors.red,
+                    ),
+                  ],
+                ),
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CutsCardWidget extends StatelessWidget {
+  const CutsCardWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.white),
+        borderRadius: BorderRadius.circular(30.r),
+      ),
+      height: 310.h,
+      width: double.infinity,
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
+        child: Column(
+          //mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            //TODO add the favourite button
+            Image.asset(
+              hairCut,
+              height: 150.h,
+              width: 320.w,
+              fit: BoxFit.fitWidth,
+              alignment: Alignment.center,
+            ),
+            SizedBox(
+              height: 10.h,
+            ),
+
+            ///hairtcut name & price
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ///haircut name
+                Text(
+                  'Platinum Fade',
+                  style: inputFont,
+                ),
+
+                ///Haircut Cost
+                Text(
+                  'BWP 350.00',
+                  style: inputFont,
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 10.h,
+            ),
+
+            ///Specialized by
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ///Specialized bv
+                Text(
+                  'Specialized By',
+                  style: inputFont.copyWith(color: feintWhite),
+                ),
+
+                ///Barber
+                Text(
+                  'Mp Tha Barber',
+                  style: inputFont.copyWith(color: feintWhite),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20.h,
+            ),
+            const Divider(thickness: 1, color: dividerColour),
+            SizedBox(
+              height: 10.h,
+            ),
+            GestureDetector(
+              onTap: () {
+                //Request cut logic here
+              },
+              child: Text(
+                'REQUEST CUT',
+                style: buttonFont,
+              ),
+            )
           ],
         ),
       ),
