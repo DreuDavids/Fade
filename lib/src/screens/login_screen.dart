@@ -36,14 +36,14 @@ class LoginScreen extends StatelessWidget {
                       style: titleFont,
                     ),
                     SizedBox(
-                      height: 5.h,
+                      height: ksSmallSpacing,
                     ),
                     Text(
                       'Welcome Back To Urban Cuts',
                       style: subtitleFont,
                     ),
                     SizedBox(
-                      height: 40.h,
+                      height: ksBigSpacing,
                     ),
                     Form(
                       child: Column(
@@ -54,7 +54,7 @@ class LoginScreen extends StatelessWidget {
                             ),
                           ),
                           SizedBox(
-                            height: 5.h,
+                            height: ksSmallSpacing,
                           ),
                           TextFormField(
                             obscureText: true,
@@ -66,7 +66,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 10.h,
+                      height: ksMediumSpacing,
                     ),
                     TextButton(
                       onPressed: () {
@@ -75,7 +75,7 @@ class LoginScreen extends StatelessWidget {
                       child: const Text('Forgot Password?'),
                     ),
                     SizedBox(
-                      height: 40.h,
+                      height: ksBigSpacing,
                     ),
 
                     ///Login with social media
@@ -102,7 +102,7 @@ class LoginScreen extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: 40.h,
+                      height: ksBigSpacing,
                     ),
                     Center(
                       child: Container(
@@ -148,7 +148,7 @@ class LoginScreen extends StatelessWidget {
                                   },
                                   icon: const Icon(Icons.apple_rounded,
                                       color: darkBlue),
-                                  iconSize: 40.h,
+                                  iconSize: ksBigSpacing,
                                 ),
                               ],
                             ),
@@ -157,7 +157,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 40.h,
+                      height: ksBigSpacing,
                     ),
                     MaterialButton(
                       onPressed: () {
@@ -173,7 +173,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 10.h,
+                      height: ksMediumSpacing,
                     ),
                     Row(
                       children: [

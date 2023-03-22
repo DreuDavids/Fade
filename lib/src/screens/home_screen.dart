@@ -49,14 +49,14 @@ class HomeScreen extends StatelessWidget {
                                     style: greetingFont,
                                   ),
                                   SizedBox(
-                                    height: 5.h,
+                                    height: ksSmallSpacing,
                                   ),
                                   Text(
                                     'Lets Get You a Fresh Cut',
                                     style: subtitleFont,
                                   ),
                                   SizedBox(
-                                    height: 40.h,
+                                    height: ksBigSpacing,
                                   ),
                                   TextField(
                                     decoration: InputDecoration(
@@ -202,7 +202,7 @@ class CutsCardWidget extends StatelessWidget {
               alignment: Alignment.center,
             ),
             SizedBox(
-              height: 10.h,
+              height: ksMediumSpacing,
             ),
 
             ///hairtcut name & price
@@ -223,7 +223,7 @@ class CutsCardWidget extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 10.h,
+              height: ksMediumSpacing,
             ),
 
             ///Specialized by
@@ -244,11 +244,11 @@ class CutsCardWidget extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 20.h,
+              height: ksLargeSpacing,
             ),
             const Divider(thickness: 1, color: dividerColour),
             SizedBox(
-              height: 10.h,
+              height: ksMediumSpacing,
             ),
             GestureDetector(
               onTap: () {

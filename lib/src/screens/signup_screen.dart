@@ -36,14 +36,14 @@ class SignupScreen extends StatelessWidget {
                       style: titleFont,
                     ),
                     SizedBox(
-                      height: 5.h,
+                      height: ksSmallSpacing,
                     ),
                     Text(
                       'Welcome To Urban Cuts',
                       style: subtitleFont,
                     ),
                     SizedBox(
-                      height: 40.h,
+                      height: ksBigSpacing,
                     ),
 
                     ///Form
@@ -55,7 +55,7 @@ class SignupScreen extends StatelessWidget {
                                 const InputDecoration(hintText: 'Email'),
                           ),
                           SizedBox(
-                            height: 5.h,
+                            height: ksSmallSpacing,
                           ),
                           TextFormField(
                             decoration:
@@ -63,7 +63,7 @@ class SignupScreen extends StatelessWidget {
                             obscureText: true,
                           ),
                           SizedBox(
-                            height: 5.h,
+                            height: ksSmallSpacing,
                           ),
                           TextFormField(
                             decoration: const InputDecoration(
@@ -74,7 +74,7 @@ class SignupScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 40.h,
+                      height: ksBigSpacing,
                     ),
 
                     ///Signup With
@@ -101,7 +101,7 @@ class SignupScreen extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: 20.h,
+                      height: ksMediumSpacing * 2,
                     ),
                     Center(
                       child: Container(
@@ -156,7 +156,7 @@ class SignupScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 40.h,
+                      height: ksBigSpacing,
                     ),
                     MaterialButton(
                       color: darkBlue,
@@ -172,7 +172,7 @@ class SignupScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 10.h,
+                      height: ksMediumSpacing,
                     ),
                     Row(
                       children: [
