@@ -4,6 +4,7 @@ import 'package:fade/src/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -61,8 +62,7 @@ class HomeScreen extends StatelessWidget {
                                   TextField(
                                     decoration: InputDecoration(
                                       filled: false,
-                                      hintStyle: inputFont.copyWith(
-                                          color: Colors.white),
+                                      hintStyle: inputAltFont,
                                       contentPadding:
                                           EdgeInsets.symmetric(vertical: 0.h),
                                       hintText: 'looking for a barber?',
@@ -81,13 +81,10 @@ class HomeScreen extends StatelessWidget {
                             ),
                             Expanded(
                               flex: 1,
-                              child: Image.asset(
+                              child: SvgPicture.asset(
                                 logo,
                                 height: 115.h,
                                 width: 100.w,
-                                fit: BoxFit.fitHeight,
-                                //color: Colors.white,
-                                //colorBlendMode: BlendMode.dstOver,
                               ),
                             ),
                           ],
@@ -121,7 +118,7 @@ class HomeScreen extends StatelessWidget {
                                 labelStyle: activeTitleFont,
                                 indicatorColor: yellow,
                                 indicatorSize: TabBarIndicatorSize.label,
-                                tabs: [
+                                tabs: const [
                                   Tab(
                                     text: 'Latest Cuts',
                                   ),
@@ -144,7 +141,7 @@ class HomeScreen extends StatelessWidget {
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 30.h),
+                padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 30.h),
                 child: TabBarView(
                   children: [
                     ///Latest cuts section
@@ -157,11 +154,27 @@ class HomeScreen extends StatelessWidget {
                         );
                       },
                     ),
-                    Placeholder(
-                      color: Colors.blue,
+
+                    ///The Barbers section
+                    AlignedGridView.count(
+                      //removing the default padding the gridview has
+                      padding: EdgeInsets.zero,
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 35.w,
+                      mainAxisSpacing: 35.h,
+                      itemBuilder: (context, index) {
+                        return BarberCardWidget();
+                      },
                     ),
-                    Placeholder(
-                      color: Colors.red,
+
+                    ///Branches section
+                    IntrinsicHeight(
+                      child: Container(
+                        color: Colors.red,
+                        height: 100,
+                        width: 100,
+                        child: Text('data'),
+                      ),
                     ),
                   ],
                 ),
@@ -174,6 +187,7 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+///
 class CutsCardWidget extends StatelessWidget {
   const CutsCardWidget({
     Key? key,
@@ -193,19 +207,48 @@ class CutsCardWidget extends StatelessWidget {
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            //TODO add the favourite button
-            Image.asset(
-              hairCut,
-              height: 150.h,
-              width: 320.w,
-              fit: BoxFit.fitWidth,
-              alignment: Alignment.center,
+            ///Cut Image and favourite button
+            Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20.r),
+                  child: Image.asset(
+                    hairCut,
+                    height: 150.h,
+                    width: double.infinity,
+                    fit: BoxFit.fitWidth,
+                    alignment: Alignment.center,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 6.h, right: 6.w),
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: Container(
+                      height: 40.h,
+                      width: 40.w,
+                      decoration: BoxDecoration(
+                        color: darkBlue.withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(100.r),
+                      ),
+                      child: IconButton(
+                        onPressed: () {
+                          //Favourite cut logic here
+                        },
+                        icon: const Icon(
+                          Icons.favorite_border_rounded,
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              ],
             ),
             SizedBox(
               height: ksMediumSpacing,
             ),
 
-            ///hairtcut name & price
+            ///hair cut name & price
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -246,7 +289,7 @@ class CutsCardWidget extends StatelessWidget {
             SizedBox(
               height: ksLargeSpacing,
             ),
-            const Divider(thickness: 1, color: dividerColour),
+            const Divider(thickness: 1, color: darkGrey),
             SizedBox(
               height: ksMediumSpacing,
             ),
@@ -259,6 +302,107 @@ class CutsCardWidget extends StatelessWidget {
                 style: buttonFont,
               ),
             )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+///
+class BarberCardWidget extends StatelessWidget {
+  const BarberCardWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 285.h,
+      width: 156.w,
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.white),
+        borderRadius: BorderRadius.circular(30.r),
+      ),
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
+        child: Column(
+          //mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ///Barber Image and favourite button
+            Stack(
+              alignment: Alignment.topCenter,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20.r),
+                  child: Image.asset(
+                    barber1,
+                    height: 150.h,
+                    width: 140.w,
+                    fit: BoxFit.fill,
+                    alignment: Alignment.center,
+                  ),
+                ),
+                //favourite icon
+                Padding(
+                  padding: EdgeInsets.only(top: 6.h, right: 6.w),
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: Container(
+                      height: 40.h,
+                      width: 40.w,
+                      decoration: BoxDecoration(
+                        color: darkBlue.withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(100.r),
+                      ),
+                      child: IconButton(
+                        onPressed: () {
+                          //Favourite barber logic here
+                        },
+                        icon: const Icon(
+                          Icons.favorite_border_rounded,
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: ksMediumSpacing,
+            ),
+
+            ///barber details
+            Text(
+              'MP The Barber',
+              style: inputFont,
+            ),
+            SizedBox(
+              height: ksMediumSpacing,
+            ),
+
+            ///Branch
+            Text(
+              'CBD Urban Cuts',
+              style: inputFont.copyWith(color: feintWhite),
+            ),
+            SizedBox(
+              height: ksMediumSpacing,
+            ),
+            const Divider(thickness: 1, color: darkGrey),
+
+            GestureDetector(
+              onTap: () {
+                //TODO View barber logic here
+              },
+              child: Text(
+                'VIEW',
+                style: buttonFont,
+              ),
+            ),
+            SizedBox(
+              height: ksMediumSpacing,
+            ),
           ],
         ),
       ),

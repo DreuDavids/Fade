@@ -89,7 +89,7 @@ class SignupScreen extends StatelessWidget {
                         ),
                         Text(
                           'Signup with',
-                          style: inputFont,
+                          style: inputAltFont,
                         ),
                         const Expanded(
                           child: Divider(
@@ -168,7 +168,7 @@ class SignupScreen extends StatelessWidget {
                       },
                       child: Text(
                         'REGISTER',
-                        style: inputFont,
+                        style: inputAltFont,
                       ),
                     ),
                     SizedBox(
@@ -178,7 +178,7 @@ class SignupScreen extends StatelessWidget {
                       children: [
                         Text(
                           'Already have an account?',
-                          style: inputFont,
+                          style: inputAltFont,
                         ),
                         TextButton(
                           onPressed: () {
@@ -192,6 +192,7 @@ class SignupScreen extends StatelessWidget {
                           },
                           child: Text(
                             'Login',
+                            style: textButtonFont.copyWith(fontSize: 16.sp),
                           ),
                         ),
                       ],

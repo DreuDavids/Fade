@@ -90,7 +90,7 @@ class LoginScreen extends StatelessWidget {
                         ),
                         Text(
                           'Login with',
-                          style: inputFont,
+                          style: inputAltFont,
                         ),
                         const Expanded(
                           child: Divider(
@@ -163,13 +163,19 @@ class LoginScreen extends StatelessWidget {
                       onPressed: () {
                         //Login logic here
                         ///TODO navigate to the home page here
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HomeScreen(),
+                          ),
+                        );
                       },
                       minWidth: double.infinity,
                       height: 50.h,
                       color: darkBlue,
                       child: Text(
                         'LOGIN',
-                        style: inputFont,
+                        style: inputAltFont,
                       ),
                     ),
                     SizedBox(
@@ -179,7 +185,7 @@ class LoginScreen extends StatelessWidget {
                       children: [
                         Text(
                           'Don\'t have an account?',
-                          style: inputFont,
+                          style: inputAltFont,
                         ),
                         TextButton(
                           onPressed: () {
@@ -193,6 +199,7 @@ class LoginScreen extends StatelessWidget {
                           },
                           child: Text(
                             'Register Now',
+                            style: textButtonFont.copyWith(fontSize: 16.sp),
                           ),
                         )
                       ],
