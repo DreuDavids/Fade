@@ -29,37 +29,38 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               child: SafeArea(
-                child: Stack(
+                child: Column(
                   children: [
-                    Align(
-                      alignment: Alignment.center,
-                      child: Container(
-                        padding:
-                            EdgeInsets.only(left: 15.w, right: 15.w, top: 30.h),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              flex: 3,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                children: [
-                                  Text(
-                                    'HEY, David',
-                                    style: greetingFont,
-                                  ),
-                                  SizedBox(
-                                    height: ksSmallSpacing,
-                                  ),
-                                  Text(
-                                    'Lets Get You a Fresh Cut',
-                                    style: subtitleFont,
-                                  ),
-                                  SizedBox(
-                                    height: ksBigSpacing,
-                                  ),
-                                  TextField(
+                    Container(
+                      padding:
+                          EdgeInsets.only(left: 15.w, right: 15.w, top: 20.h),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            flex: 3,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'HEY, David',
+                                  style: greetingFont,
+                                ),
+                                SizedBox(
+                                  height: ksSmallSpacing,
+                                ),
+                                Text(
+                                  'Lets Get You a Fresh Cut',
+                                  style: subtitleFont,
+                                ),
+                                SizedBox(
+                                  height: ksBigSpacing,
+                                ),
+                                SizedBox(
+                                  height: 30.h,
+                                  child: TextField(
                                     decoration: InputDecoration(
                                       filled: false,
                                       hintStyle: inputAltFont,
@@ -76,25 +77,27 @@ class HomeScreen extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                ],
-                              ),
+                                ),
+                                SizedBox(
+                                  height: ksBigSpacing,
+                                ),
+                              ],
                             ),
-                            Expanded(
-                              flex: 1,
-                              child: SvgPicture.asset(
-                                logo,
-                                height: 115.h,
-                                width: 100.w,
-                              ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: SvgPicture.asset(
+                              logo,
+                              height: 115.h,
+                              width: 100.w,
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
-                    Align(
-                      alignment: Alignment.bottomCenter,
+                    Expanded(
                       child: Container(
-                        height: 55.h,
+                        width: double.infinity,
                         decoration: BoxDecoration(
                           color: titleBlurOverlayColor,
                           borderRadius: BorderRadius.only(
@@ -113,17 +116,18 @@ class HomeScreen extends StatelessWidget {
                               padding: EdgeInsets.symmetric(horizontal: 15.w),
                               child: TabBar(
                                 labelPadding:
-                                    EdgeInsets.symmetric(horizontal: 5.w),
+                                    EdgeInsets.symmetric(horizontal: 10.w),
                                 unselectedLabelStyle: feintTitleFont,
                                 labelStyle: activeTitleFont,
                                 indicatorColor: yellow,
-                                indicatorSize: TabBarIndicatorSize.label,
+                                indicatorSize: TabBarIndicatorSize.tab,
+                                isScrollable: true,
                                 tabs: const [
                                   Tab(
-                                    text: 'Latest Cuts',
+                                    text: 'The Latest Cuts',
                                   ),
                                   Tab(
-                                    text: 'The Barbers',
+                                    text: 'Specialist Barbers',
                                   ),
                                   Tab(
                                     text: 'Branches',
@@ -146,7 +150,7 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     ///Latest cuts section
                     ListView.builder(
-                      padding: const EdgeInsets.all(0),
+                      padding: EdgeInsets.zero,
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: EdgeInsets.only(bottom: 40.h),
@@ -168,20 +172,139 @@ class HomeScreen extends StatelessWidget {
                     ),
 
                     ///Branches section
-                    IntrinsicHeight(
-                      child: Container(
-                        color: Colors.red,
-                        height: 100,
-                        width: 100,
-                        child: Text('data'),
-                      ),
-                    ),
+                    ListView.builder(
+                        padding: EdgeInsets.zero,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: EdgeInsets.only(bottom: 40.h),
+                            child: BranchCardWidget(),
+                          );
+                        }),
                   ],
                 ),
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+///
+class BranchCardWidget extends StatelessWidget {
+  const BranchCardWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 300.h,
+      width: double.infinity,
+      padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30.r),
+        border: Border.all(
+          color: Colors.white,
+        ),
+      ),
+      child: Column(
+        children: [
+          //Branch Image & Name
+          Container(
+            height: 160.h,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20.r),
+              image: const DecorationImage(
+                ///set branch image here
+                image: AssetImage(barberShop1),
+                fit: BoxFit.cover,
+                alignment: Alignment.center,
+              ),
+            ),
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                height: 35.h,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(20.r),
+                    bottomRight: Radius.circular(20.r),
+                  ),
+                  color: primaryColor.withOpacity(0.6),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(20.r),
+                    bottomLeft: Radius.circular(20.r),
+                  ),
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+                    child: Center(
+                      ///set your branch name here
+                      child: Text(
+                        'CBD Urban Cuts',
+                        style: inputFont,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: ksMediumSpacing,
+          ),
+          //Operational hours
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Hours',
+                style: inputFont,
+              ),
+              //Operational Hours
+              Column(
+                children: [
+                  ///Set your operation time here
+                  Text(
+                    '(Mon - Fri :0800-1900)hrs',
+                    style: inputFont,
+                  ),
+                  SizedBox(
+                    height: ksMediumSpacing,
+                  ),
+
+                  ///Set your operation time here
+                  Text(
+                    '(Sat - Sun :0900-1700)hrs',
+                    style: inputFont,
+                  ),
+                ],
+              ),
+            ],
+          ),
+          SizedBox(
+            height: ksMediumSpacing,
+          ),
+          const Divider(thickness: 1, color: darkGrey),
+          Expanded(
+            child: Center(
+              child: GestureDetector(
+                onTap: () {
+                  //Get branch location logic here
+                },
+                child: Text(
+                  'GET LOCATION',
+                  style: buttonFont,
+                ),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
@@ -290,16 +413,18 @@ class CutsCardWidget extends StatelessWidget {
               height: ksLargeSpacing,
             ),
             const Divider(thickness: 1, color: darkGrey),
-            SizedBox(
-              height: ksMediumSpacing,
-            ),
-            GestureDetector(
-              onTap: () {
-                //Request cut logic here
-              },
-              child: Text(
-                'REQUEST CUT',
-                style: buttonFont,
+
+            Expanded(
+              child: Center(
+                child: GestureDetector(
+                  onTap: () {
+                    //Request cut logic here
+                  },
+                  child: Text(
+                    'REQUEST CUT',
+                    style: buttonFont,
+                  ),
+                ),
               ),
             )
           ],
@@ -391,17 +516,18 @@ class BarberCardWidget extends StatelessWidget {
             ),
             const Divider(thickness: 1, color: darkGrey),
 
-            GestureDetector(
-              onTap: () {
-                //TODO View barber logic here
-              },
-              child: Text(
-                'VIEW',
-                style: buttonFont,
+            Expanded(
+              child: Center(
+                child: GestureDetector(
+                  onTap: () {
+                    //TODO View barber logic here
+                  },
+                  child: Text(
+                    'VIEW',
+                    style: buttonFont,
+                  ),
+                ),
               ),
-            ),
-            SizedBox(
-              height: ksMediumSpacing,
             ),
           ],
         ),
