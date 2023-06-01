@@ -1,16 +1,26 @@
-# fade
+# UrbanCuts
+## About
+A modern mobile UI of a urban barbershop, making use of dark colours that mimic the graffiti urban lifestyle.
 
-A modern UI of a urban barbershop, making use of dark colours that mimic the graffiti urban lifestyle.
+## Screenshots
+![screenshots](/snapshots/snapshot1.png)
+![screenshots](/snapshots/snapshot2.png)
+![screenshots](/snapshots/snapshot3.png)
+![screenshots](/snapshots/snapshot4.png)
 
-## Getting Started
+## Getting Started/ Config
 
-This project is a starting point for a Flutter application.
+1. This project was made using Flutter hence flutter will be required on your system.
+2. Open the project and install dependencies (using terminal):
+```
+$ cd fade
+$ flutter pub get
+```
+This installs all the required dependencies to run the application
+`$ flutter run`
+this runs the application
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Links
+Please checkout my Links for the UI/UX designs concepts of this application
+https://dribbble.com/AndreuMod
+https://www.behance.net/AndreuDavids

@@ -10,11 +10,11 @@ class TextFormFieldTheme {
     filled: true,
     fillColor: primaryColor,
     contentPadding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 15.w),
-    labelStyle: inputFont.apply(color: Colors.white),
+    labelStyle: inputAltFont.apply(color: Colors.white),
     floatingLabelBehavior: FloatingLabelBehavior.never,
-    floatingLabelStyle: inputFont.apply(color: Colors.white),
-    hintStyle: inputFont.apply(color: Colors.white),
-    counterStyle: inputFont.apply(color: Colors.white),
+    floatingLabelStyle: inputAltFont.apply(color: Colors.white),
+    hintStyle: inputAltFont.apply(color: Colors.white),
+    counterStyle: inputAltFont.apply(color: Colors.white),
     border: InputBorder.none,
   );
 }

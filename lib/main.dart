@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fade/src/screens/screens.dart';
 import 'package:fade/src/constants/constants.dart';
 
-
 void main() {
   //locking screen orientation
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,14 +25,15 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       splitScreenMode: false,
       builder: (context, child) {
-        return  MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Fade',
-        themeMode: ThemeMode.dark,
-        ///for the light theme
-        //theme: AppTheme.lightTheme,
-        darkTheme: AppTheme.darkTheme,
-        home: const LoginScreen(),
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Fade',
+          themeMode: ThemeMode.dark,
+
+          ///for the light theme
+          //theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          home: const LoginScreen(),
         );
       },
     );
