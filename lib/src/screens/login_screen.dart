@@ -197,7 +197,7 @@ class LoginScreen extends StatelessWidget {
                               ),
                             );
                           },
-                          child: const Text(
+                          child: Text(
                             'Register Now',
                             style: textButtonFont.copyWith(fontSize: 16.sp),
                           ),

@@ -190,7 +190,7 @@ class SignupScreen extends StatelessWidget {
                               ),
                             );
                           },
-                          child: const Text(
+                          child: Text(
                             'Login',
                             style: textButtonFont.copyWith(fontSize: 16.sp),
                           ),
